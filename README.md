@@ -125,7 +125,9 @@ product.discount = 20
 product.save
 ```
 Fetch all products where name is "Laptop".
-
+```ruby
+Product.where(name: 'Laptop')
+```
 Find products where price is greater than 100.
 
 Retrieve products where available is true.
