@@ -134,7 +134,7 @@ Product.where('price > ?', 100)
 ```
 Retrieve products where available is true.
 ```ruby
-
+Product.where(available: true)
 ```
 Fetch products where quantity is less than 50.
 
