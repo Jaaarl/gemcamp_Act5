@@ -13,7 +13,117 @@ Product.create(name: "Gaming Monitor", description: "Elevate your gaming experie
 Product.create(name: "Arduino", description: "Arduino is an open-source electronics platform that enables users to create interactive projects and prototypes using programmable hardware and software.", quantity: 0, price: 2000, available: false, released_at: "2024-9-01 12:00:00" , expiry_date: nil, discount: 0)
 ```
 Create atleast 10 records using the save method
+```ruby
+product = Product.new
+product.name = "Wireless Earbuds"
+product.description = "Experience true wireless freedom with our premium earbuds, featuring high-fidelity sound and a long-lasting battery."
+product.quantity = 100
+product.price = 3000
+product.available = true
+product.released_at = "2024-10-01 09:00:00"
+product.expiry_date = nil
+product.discount = 15
+product.save
 
+product = Product.new
+product.name = "Smartwatch"
+product.description = "Stay connected on the go with our feature-rich smartwatch, offering fitness tracking and notifications."
+product.quantity = 50
+product.price = 7500
+product.available = true
+product.released_at = "2024-11-15 08:00:00"
+product.expiry_date = nil
+product.discount = 20
+product.save
+
+product = Product.new
+product.name = "Gaming Chair"
+product.description = "Enhance your gaming experience with our ergonomic gaming chair, designed for comfort during long sessions."
+product.quantity = 20
+product.price = 12000
+product.available = true
+product.released_at = "2024-12-01 10:00:00"
+product.expiry_date = nil
+product.discount = 10
+product.save
+
+product = Product.new
+product.name = "Bluetooth Speaker"
+product.description = "Enjoy high-quality sound with our portable Bluetooth speaker, perfect for any occasion."
+product.quantity = 75
+product.price = 2500
+product.available = true
+product.released_at = "2024-10-20 14:00:00"
+product.expiry_date = nil
+product.discount = 5
+product.save
+
+product = Product.new
+product.name = "Action Camera"
+product.description = "Capture your adventures with our compact action camera, featuring 4K video and waterproof design."
+product.quantity = 30
+product.price = 15000
+product.available = true
+product.released_at = "2024-09-15 11:00:00"
+product.expiry_date = nil
+product.discount = 12
+product.save
+
+product = Product.new
+product.name = "Electric Kettle"
+product.description = "Boil water quickly with our energy-efficient electric kettle, featuring an automatic shut-off for safety."
+product.quantity = 60
+product.price = 2000
+product.available = true
+product.released_at = "2024-08-10 09:30:00"
+product.expiry_date = nil
+product.discount = 8
+product.save
+
+product = Product.new
+product.name = "Electric Kettle"
+product.description = "Boil water quickly with our energy-efficient electric kettle, featuring an automatic shut-off for safety."
+product.quantity = 60
+product.price = 2000
+product.available = true
+product.released_at = "2024-08-10 09:30:00"
+product.expiry_date = nil
+product.discount = 8
+product.save
+
+product = Product.new
+product.name = "Electric Toothbrush"
+product.description = "Achieve a superior clean with our advanced electric toothbrush, featuring multiple modes and a timer."
+product.quantity = 80
+product.price = 3500
+product.available = true
+product.released_at = "2024-06-01 10:00:00"
+product.expiry_date = nil
+product.discount = 10
+product.save
+
+product = Product.new
+product.name = "Wireless Charger"
+product.description = "Charge your devices effortlessly with our sleek wireless charger, compatible with all Qi-enabled phones."
+product.quantity = 150
+product.price = 2000
+product.available = true
+product.released_at = "2024-05-15 14:30:00"
+product.expiry_date = nil
+product.discount = 5
+product.save
+
+product = Product.new
+product.name = "Instant Camera"
+product.description = "Capture memories instantly with our easy-to-use instant camera, perfect for parties and events."
+product.quantity = 40
+product.price = 9000
+product.available = true
+product.released_at = "2024-04-10 11:00:00"
+product.expiry_date = nil
+product.discount = 20
+product.save
+```
 Fetch all products where name is "Laptop".
 
 Find products where price is greater than 100.
