@@ -229,7 +229,9 @@ Update the quantity to 50 for products where name starts with "Pro".
 Product.where("name LIKE ?", "Pro%").update_all(quantity: 50)
 ```
 Set the price to 200 for all products where discount is nil.
-
+```ruby
+Product.where(discount: nil).update_all(price: 200)
+```
 Mark products as available if their released_at is before January 1, 2023.
 
 Update the price to 80 where the quantity is between 10 and 20.
