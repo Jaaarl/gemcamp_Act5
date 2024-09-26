@@ -206,7 +206,7 @@ Product.where.not(discount: nil)
 ```
 Update the price of a product where name is "Laptop" to 120.
 ```ruby
-Product.where(name: 120)
+Product.where(name: "Laptop").update_all(price: 120)
 ```
 Set the available status to false for products where quantity is 0.
 ```ruby
