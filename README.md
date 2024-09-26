@@ -173,7 +173,9 @@ Retrieve products where released_at is before January 1, 2022.
 Product.where("released_at < '2022-01-01'")
 ```
 Fetch products where quantity is between 10 and 100.
-
+```ruby
+Product.where("quantity >= ?", 10).where("quantity <= ?", 100)
+```
 Find products where discount is greater than or equal to 5%.
 
 Retrieve products where price is less than or equal to 200 and available is true.
