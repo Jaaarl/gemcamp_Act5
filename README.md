@@ -157,7 +157,9 @@ Find products where price is between 50 and 150.
 Product.where(price: 50..150)
 ```
 Retrieve products where available is false and quantity is greater than 0.
-
+```ruby
+Product.where(available: false).where('quantity > ?', 0)
+```
 Fetch products where released_at is after January 1, 2023.
 
 Find products where expiry_date is nil.
