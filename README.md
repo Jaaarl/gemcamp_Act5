@@ -165,7 +165,9 @@ Fetch products where released_at is after January 1, 2023.
 Product.where("released_at > '2023-01-01'")
 ```
 Find products where expiry_date is nil.
-
+```ruby
+Product.where('expiry_date = ?', nil)
+```
 Retrieve products where released_at is before January 1, 2022.
 
 Fetch products where quantity is between 10 and 100.
