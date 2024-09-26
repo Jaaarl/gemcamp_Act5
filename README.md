@@ -177,7 +177,9 @@ Fetch products where quantity is between 10 and 100.
 Product.where("quantity >= ?", 10).where("quantity <= ?", 100)
 ```
 Find products where discount is greater than or equal to 5%.
-
+```ruby
+Product.where("discount >= ?", 5)
+```
 Retrieve products where price is less than or equal to 200 and available is true.
 
 Fetch products where expiry_date is before today’s date.
