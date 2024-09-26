@@ -237,7 +237,9 @@ Mark products as available if their released_at is before January 1, 2023.
 Product.where("released_at < '2023-01-01'").update_all(available: true)
 ```
 Update the price to 80 where the quantity is between 10 and 20.
-
+```ruby
+Product.where(quantity: 10..20).update_all(price: 80)
+```
 Remove any discount (set to nil) for products where expiry_date is before today.
 
 Update the name to "Premium Laptop" for products where price is more than 500.
