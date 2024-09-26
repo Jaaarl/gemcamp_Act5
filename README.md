@@ -205,9 +205,13 @@ Find products where discount is not nil.
 Product.where.not(discount: nil)
 ```
 Update the price of a product where name is "Laptop" to 120.
-
+```ruby
+Product.where(name: 120)
+```
 Set the available status to false for products where quantity is 0.
-
+```ruby
+Product.where(quantity: 0).update_all(available: false)
+```
 Increase the discount by 5% for products where price is greater than 100.
 
 Update the description to "Out of stock" for products where available is false.
