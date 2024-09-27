@@ -289,7 +289,9 @@ Delete a product where name is "Laptop".
 Product.where(name: "Laptop").destroy_all
 ```
 Remove all products where available is false.
-
+```ruby
+Product.where(available: false).each(&:destroy)
+```
 Delete products where price is greater than 500.
 
 Remove all products where quantity is 0.
