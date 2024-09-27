@@ -253,9 +253,13 @@ Set the quantity to nil for products where available is false.
 Product.where(available: false).each {|product|product.update(quantity: nil)}
 ```
 Update released_at to the current date for products with a price less than 50.
-
+```ruby
+Product.where('price < ?', 50).each { |product| product.update(released_at: Date.today) }
+```
 Reduce the price by 20% for products where quantity is less than 5.
-
+```ruby
+Product.where('quantity < ?', 5).each { |product| product.update(price: product.price * 0.8) }
+```
 Set the discount to 0% for products with a price greater than or equal to 300.
 
 Change the description to "Limited time offer" where the discount is 15%.
