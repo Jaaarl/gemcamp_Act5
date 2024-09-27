@@ -281,7 +281,9 @@ Set the expiry_date to nil for products where discount is less than 5%.
 Product.where('discount < ?', 5).each { |product| product.update(expiry_date: nil) }
 ```
 Update the price to 150 where the description contains "sale".
-
+```ruby
+Product.where('description LIKE ?', '%sale%').each { |product| product.update(price: 150) }
+```
 Delete a product where name is "Laptop".
 
 Remove all products where available is false.
