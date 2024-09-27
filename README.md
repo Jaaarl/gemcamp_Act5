@@ -249,7 +249,9 @@ Update the name to "Premium Laptop" for products where price is more than 500.
 Product.where("price > ?", 500).each {|product|product.update(name: "Premium Laptop")}
 ```
 Set the quantity to nil for products where available is false.
-
+```ruby
+Product.where(available: false).each {|product|product.update(quantity: nil)}
+```
 Update released_at to the current date for products with a price less than 50.
 
 Reduce the price by 20% for products where quantity is less than 5.
