@@ -345,7 +345,9 @@ Delete products where released_at is more than 5 years ago.
 Product.where('released_at < ?', 5.years.ago).destroy_all
 ```
 Remove products where description includes "obsolete".
-
+```ruby
+Product.where('description LIKE ?', '%obsolete%').destroy_all
+```
 Delete products where quantity is nil.
 
 Remove products where expiry_date is within the next month.
