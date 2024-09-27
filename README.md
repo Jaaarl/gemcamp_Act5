@@ -285,7 +285,9 @@ Update the price to 150 where the description contains "sale".
 Product.where('description LIKE ?', '%sale%').each { |product| product.update(price: 150) }
 ```
 Delete a product where name is "Laptop".
-
+```ruby
+Product.where(name: "Laptop").destroy_all
+```
 Remove all products where available is false.
 
 Delete products where price is greater than 500.
