@@ -246,7 +246,7 @@ Product.where('expiry_date < ?', Date.today).each { |product| product.update(dis
 ```
 Update the name to "Premium Laptop" for products where price is more than 500.
 ```ruby
-
+Product.where("price > ?", 500).each {|product|product.update(name: "Premium Laptop")}
 ```
 Set the quantity to nil for products where available is false.
 
