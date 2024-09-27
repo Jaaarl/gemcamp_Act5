@@ -269,7 +269,9 @@ Change the description to "Limited time offer" where the discount is 15%.
 Product.where(discount: 15).each { |product| product.update(description: "Limited time offer") }
 ```
 Set available to true for products where the price is between 100 and 200.
-
+```ruby
+Product.where(price: 100..200).each {|product| product.update(available: true)}
+```
 Increase the quantity by 10 for products where released_at is after January 1, 2023.
 
 Set the expiry_date to nil for products where discount is less than 5%.
