@@ -273,7 +273,9 @@ Set available to true for products where the price is between 100 and 200.
 Product.where(price: 100..200).each {|product| product.update(available: true)}
 ```
 Increase the quantity by 10 for products where released_at is after January 1, 2023.
-
+```ruby
+Product.where('released_at > ?', Date.new(2023, 1, 1)).each { |product| product.update(quantity: product.quantity + 10) }
+```
 Set the expiry_date to nil for products where discount is less than 5%.
 
 Update the price to 150 where the description contains "sale".
