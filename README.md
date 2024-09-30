@@ -353,7 +353,9 @@ Delete products where quantity is nil.
 Product.where(quantity: nil).destroy_all
 ```
 Remove products where expiry_date is within the next month.
-
+```ruby
+Product.where('expiry_date <= ?', 1.month.from_now).destroy_all
+```
 Delete products where discount is less than 5%.
 
 Remove all products where available is true but quantity is less than 5.
