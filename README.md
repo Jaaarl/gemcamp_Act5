@@ -369,7 +369,9 @@ Print the name of all the products
 Product.all.each { |product| puts product.name }
 ```
 Write a new migration to rename the description to content
-
+```ruby
+rails generate migration RenameDescriptionToContent
+```
 Write a new migration to add a new column image
 
 Write a new migration to remove the column expiry_date
