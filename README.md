@@ -365,7 +365,9 @@ Remove all products where available is true but quantity is less than 5.
 Product.where(available: true).where('quantity < ?',5).destroy_all
 ```
 Print the name of all the products
-
+```ruby
+Product.all.each { |product| puts product.name }
+```
 Write a new migration to rename the description to content
 
 Write a new migration to add a new column image
