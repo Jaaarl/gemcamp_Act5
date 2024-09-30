@@ -373,5 +373,7 @@ Write a new migration to rename the description to content
 rails generate migration RenameDescriptionToContent
 ```
 Write a new migration to add a new column image
-
+```ruby
+rails generate migration add_image_to_products image:string
+```
 Write a new migration to remove the column expiry_date
