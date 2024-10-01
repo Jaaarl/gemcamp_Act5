@@ -378,5 +378,5 @@ rails generate migration add_image_to_products image:string
 ```
 Write a new migration to remove the column expiry_date
 ```ruby
-
+rails generate migration remove_expiry_date_from_products expiry_date:date
 ```
