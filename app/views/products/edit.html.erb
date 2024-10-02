@@ -1,0 +1,36 @@
+<h1>Edit Post id: <%= @product.id %></h1>
+<%= form_with model: @product  do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <div>
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity %>
+  </div>
+  <div>
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+  <div>
+    <%= form.label :discount %>
+    <%= form.text_field :discount %>
+  </div>
+  <div>
+    <%= form.label :available %>
+    <%= form.text_field :available %>
+  </div>
+  <div>
+    <%= form.label :released_at %>
+    <%= form.text_field :released_at %>
+  </div>
+  <div>
+    <%= form.label :image %>
+    <%= form.text_field :image %>
+  </div>
+  <%= form.submit %>
+<% end %>
