@@ -1,0 +1,11 @@
+<h1><%= @product.name %></h1>
+<h5><%= @product.content %></h5>
+<ul>
+  <li>Quantity: <%= @product.quantity %></li>
+  <li>Name: <%= @product.name %></li>
+  <li>Content: <%= @product.content %></li>
+  <li>Price: <%=  @product.price %></li>
+  <li>Available: <%= @product.available? ? 'Yes' : 'No' %></li>
+  <li>Released At: <%= @product.released_at %></li>
+  <li>Discount: <%= @product.discount || 0 %> %</li>
+</ul>
