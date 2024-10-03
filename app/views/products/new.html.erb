@@ -1,39 +1,43 @@
 <h1>New Product</h1>
 <%= form_with model: @product do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="container">
+    <div>
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+    <div>
+      <%= form.label :content, class: 'form-label' %>
+      <%= form.text_field :content, class: 'form-control' %>
+    </div>
+    <div>
+      <%= form.label :quantity, class: 'form-label' %>
+      <%= form.number_field :quantity, min: 0, class: 'form-control' %>
+    </div>
+    <div>
+      <%= form.label :price, class: 'form-label' %>
+      <%= form.number_field :price, min: 0, class: 'form-control' %>
+    </div>
+    <div>
+      <%= form.label :discount, class: 'form-label' %>
+      <%= form.number_field :discount, min: 0, class: 'form-control' %>
+    </div>
+    <div>
+      <%= form.label :available, class: 'form-label' %>
+      <div>
+        <%= form.radio_button :available, true %>
+        <%= form.label :available_true, "Yes", class: 'form-label' %>
+        <%= form.radio_button :available, false %>
+        <%= form.label :available_false, "No", class: 'form-label' %>
+      </div>
+    </div>
+    <div>
+      <%= form.label :released_at, class: 'form-label' %>
+      <%= form.date_field :released_at, class: 'form-control' %>
+    </div>
+    <div>
+      <%= form.label :image, class: 'form-label' %>
+      <%= form.text_field :image, class: 'form-control' %>
+    </div>
+    <%= form.submit "Create Product", class: 'btn btn-success mt-2' %>
   </div>
-  <div>
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-  <div>
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity, min: 0 %>
-  </div>
-  <div>
-    <%= form.label :price %>
-    <%= form.number_field :price, min: 0 %>
-  </div>
-  <div>
-    <%= form.label :discount %>
-    <%= form.number_field :discount, min: 0 %>
-  </div>
-  <div>
-    <%= form.label :available %>
-    <%= form.radio_button :available, true %>
-    <%= form.label :available_true, "Yes" %>
-    <%= form.radio_button :available, false %>
-    <%= form.label :available_false, "No" %>
-  </div>
-  <div>
-    <%= form.label :released_at %>
-    <%= form.date_field :released_at %>
-  </div>
-  <div>
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
-  <%= form.submit %>
 <% end %>
