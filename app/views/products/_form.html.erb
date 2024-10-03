@@ -1,0 +1,42 @@
+<%= form_with model: @product do |form| %>
+  <div class="container">
+    <div>
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+    <div>
+      <%= form.label :content, class: 'form-label' %>
+      <%= form.text_field :content, class: 'form-control' %>
+    </div>
+    <div>
+      <%= form.label :quantity, class: 'form-label' %>
+      <%= form.number_field :quantity, min: 0, class: 'form-control' %>
+    </div>
+    <div>
+      <%= form.label :price, class: 'form-label' %>
+      <%= form.number_field :price, min: 0, class: 'form-control' %>
+    </div>
+    <div>
+      <%= form.label :discount, class: 'form-label' %>
+      <%= form.number_field :discount, min: 0, class: 'form-control' %>
+    </div>
+    <div>
+      <%= form.label :available, class: 'form-label' %>
+      <div>
+        <%= form.radio_button :available, true %>
+        <%= form.label :available_true, "Yes", class: 'form-label' %>
+        <%= form.radio_button :available, false %>
+        <%= form.label :available_false, "No", class: 'form-label' %>
+      </div>
+    </div>
+    <div>
+      <%= form.label :released_at, class: 'form-label' %>
+      <%= form.date_field :released_at, class: 'form-control' %>
+    </div>
+    <div>
+      <%= form.label :image, class: 'form-label' %>
+      <%= form.text_field :image, class: 'form-control' %>
+    </div>
+    <%= form.submit "Create Product", class: 'btn btn-success mt-2' %>
+  </div>
+<% end %>
