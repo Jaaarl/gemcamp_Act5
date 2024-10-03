@@ -22,15 +22,18 @@
   </div>
   <div>
     <%= form.label :available %>
-    <%= form.text_field :available %>
+    <%= form.radio_button :available, true %>
+    <%= form.label :available_true, "Yes" %>
+    <%= form.radio_button :available, false %>
+    <%= form.label :available_false, "No" %>
   </div>
   <div>
     <%= form.label :released_at %>
-    <%= form.text_field :released_at %>
+    <%= form.date_field :released_at %>
   </div>
   <div>
     <%= form.label :image %>
     <%= form.text_field :image %>
   </div>
-  <%= form.submit  %>
+  <%= form.submit %>
 <% end %>
