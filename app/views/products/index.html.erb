@@ -1,66 +1,79 @@
 <h1>Product list</h1>
 <%= link_to 'Add new', new_product_path, class: 'btn btn-success' %>
-<%= form_with url: products_path, method: :get, local: true, class: 'mb-3' do %>
-  <div class="input-group">
-    <%= text_field_tag :search, params[:search], placeholder: "Search by name", class: 'form-control' %>
-    <%= button_tag 'Search', class: 'btn btn-primary' %>
-  </div>
+<div class = "d-flex">
 
-  <div class="input-group mt-2">
-    <%= number_field_tag :min_quantity, params[:min_quantity], placeholder: "Min Quantity", class: 'form-control', min: 0 %>
-    <%= number_field_tag :max_quantity, params[:max_quantity], placeholder: "Max Quantity", class: 'form-control', min: 0 %>
-    <%= button_tag 'Filter', class: 'btn btn-secondary' %>
-  </div>
+  <div class="card p-3">
+    <%= form_with url: products_path, method: :get, local: true, class: 'mb-3' do %>
+      <div class="mb-3">
+        <%= text_field_tag :search, params[:search], placeholder: "Search by name", class: 'form-control' %>
+      </div>
 
-  <div class="input-group mt-2">
-    <%= number_field_tag :min_price, params[:min_price], placeholder: "Min Price", class: 'form-control', min: 0 %>
-    <%= number_field_tag :max_price, params[:max_price], placeholder: "Max Price", class: 'form-control', min: 0 %>
-    <%= button_tag 'Filter', class: 'btn btn-secondary' %>
-  </div>
+      <div class="row mb-3">
+        <div class="col">
+          <%= number_field_tag :min_quantity, params[:min_quantity], placeholder: "Min Quantity", class: 'form-control', min: 0 %>
+        </div>
+        <div class="col">
+          <%= number_field_tag :max_quantity, params[:max_quantity], placeholder: "Max Quantity", class: 'form-control', min: 0 %>
+        </div>
+      </div>
 
-  <div class="form-check mt-2">
-    <%= check_box_tag :available, "1", params[:available] == "1", id: "available" %>
-    <%= label_tag :available, "Available", class: 'form-check-label' %>
-  </div>
+      <div class="row mb-3">
+        <div class="col">
+          <%= number_field_tag :min_price, params[:min_price], placeholder: "Min Price", class: 'form-control', min: 0 %>
+        </div>
+        <div class="col">
+          <%= number_field_tag :max_price, params[:max_price], placeholder: "Max Price", class: 'form-control', min: 0 %>
+        </div>
+      </div>
 
-  <div class="input-group mt-2">
-    <div>
-    <%= label_tag :release_start, "Release date start", class: 'form-check-label' %>
-    <%= date_field_tag :release_start, params[:release_start], placeholder: "Release Start", class: 'form-control' %>
-    </div>
-    <div><%= label_tag :release_end, "Release date end", class: 'form-check-label' %>
-    <%= date_field_tag :release_end, params[:release_end], placeholder: "Release End", class: 'form-control' %>
-    </div>
-    <%= button_tag 'Filter by Date', class: 'btn btn-secondary' %>
-  </div>
-<% end %>
+      <div class="form-check mb-3">
+        <%= check_box_tag :available, "1", params[:available] == "1", id: "available", class: 'form-check-input' %>
+        <%= label_tag :available, "Available", class: 'form-check-label' %>
+      </div>
 
-<table class="table">
-  <thead>
-  <tr>
-    <td>Name</td>
-    <td>Quantity</td>
-    <td>Price</td>
-    <td>Discount</td>
-    <td>Total Price</td>
-    <td>Action</td>
-  </tr>
-  </thead>
-  <tbody>
-  <% @products.each do |product| %>
-    <tr>
-      <td><%= product.name %></td>
-      <td><%= product.quantity %></td>
-      <td><%= product.price %></td>
-      <td class="text-danger"><%= product.discount %></td>
-      <td>
-        <%= product.price - (product.price * (product.discount * 0.01)) %>
-      </td>
-      <td class="d-flex flex-row gap-1">
-        <%= button_to 'Delete', product_path(product), method: :delete, class: 'btn btn-sm btn-danger' %>
-        <%= link_to 'Show', product_path(product), class: 'btn btn-sm btn-success' %>
-        <%= link_to 'Edit', edit_product_path(product), class: 'btn btn-sm btn-info' %></td>
+      <div class="row mb-3">
+        <div class="col">
+          <%= label_tag :release_start, "Release Date Start", class: 'form-label' %>
+          <%= date_field_tag :release_start, params[:release_start], class: 'form-control' %>
+        </div>
+        <div class="col">
+          <%= label_tag :release_end, "Release Date End", class: 'form-label' %>
+          <%= date_field_tag :release_end, params[:release_end], class: 'form-control' %>
+        </div>
+      </div>
+      <%= button_tag 'Filter', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+  <div class="card p-2">
+  <table class="table">
+    <thead>
+    <tr class="text-center">
+      <td>Name</td>
+      <td>Quantity</td>
+      <td>Price</td>
+      <td>Discount</td>
+      <td>Total Price</td>
+      <td>Action</td>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.quantity %></td>
+        <td><%= product.price %></td>
+        <td class="text-danger"><%= product.discount %></td>
+        <td>
+          <%= product.price - (product.price * (product.discount * 0.01)) %>
+        </td>
+        <td class="btn-group">
+          <%= button_to 'Delete', product_path(product), method: :delete, class: 'btn btn-sm btn-danger' %>
+          <%= link_to 'Show', product_path(product), class: 'btn btn-sm btn-success' %>
+          <%= link_to 'Edit', edit_product_path(product), class: 'btn btn-sm btn-info' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
