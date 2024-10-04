@@ -10,7 +10,11 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params[:product].permit(:name, :content, :quantity, :price, :available, :released_at, :discount, :image))
     if @product.save
+      flash[:notice] = "Product created successfully"
       redirect_to products_path
+    else
+      flash.now[:alert] = "Product created failed"
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -25,7 +29,11 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(params.require(:product).permit(:name, :content, :quantity, :price, :available, :released_at, :discount, :image))
+      flash[:notice] = "Product created successfully"
       redirect_to products_path
+    else
+      flash.now[:alert] = "Product created failed"
+      render :new, status: :unprocessable_entity
     end
   end
 
