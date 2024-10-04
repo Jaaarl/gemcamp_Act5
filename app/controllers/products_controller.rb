@@ -5,6 +5,13 @@ class ProductsController < ApplicationController
                 else
                   Product.all
                 end
+    if params[:min_quantity].present? && params[:max_quantity].present?
+      @products = @products.where(quantity: params[:min_quantity].to_i..params[:max_quantity].to_i)
+    elsif params[:min_quantity].present?
+      @products = @products.where("quantity >= ?", params[:min_quantity].to_i)
+    elsif params[:max_quantity].present?
+      @products = @products.where("quantity <= ?", params[:max_quantity].to_i)
+    end
   end
 
   def new
