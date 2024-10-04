@@ -12,6 +12,26 @@ class ProductsController < ApplicationController
     elsif params[:max_quantity].present?
       @products = @products.where("quantity <= ?", params[:max_quantity].to_i)
     end
+
+    if params[:min_price].present? && params[:max_price].present?
+      @products = @products.where(quantity: params[:min_price].to_i..params[:max_price].to_i)
+    elsif params[:min_price].present?
+      @products = @products.where("price >= ?", params[:min_price].to_i)
+    elsif params[:max_price].present?
+      @products = @products.where("price <= ?", params[:max_price].to_i)
+    end
+
+    if params[:available] == "1"
+      @products = @products.where(available: true)
+    end
+
+    if params[:release_start].present? && params[:release_end].present?
+      @products = @products.where(release_at: params[:release_start]..params[:release_end])
+    elsif params[:release_start].present?
+      @products = @products.where("release_at >= ?", params[:release_start])
+    elsif params[:release_end].present?
+      @products = @products.where("release_at <= ?", params[:release_end])
+    end
   end
 
   def new

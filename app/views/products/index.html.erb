@@ -11,6 +11,28 @@
     <%= number_field_tag :max_quantity, params[:max_quantity], placeholder: "Max Quantity", class: 'form-control', min: 0 %>
     <%= button_tag 'Filter', class: 'btn btn-secondary' %>
   </div>
+
+  <div class="input-group mt-2">
+    <%= number_field_tag :min_price, params[:min_price], placeholder: "Min Price", class: 'form-control', min: 0 %>
+    <%= number_field_tag :max_price, params[:max_price], placeholder: "Max Price", class: 'form-control', min: 0 %>
+    <%= button_tag 'Filter', class: 'btn btn-secondary' %>
+  </div>
+
+  <div class="form-check mt-2">
+    <%= check_box_tag :available, "1", params[:available] == "1", id: "available" %>
+    <%= label_tag :available, "Available", class: 'form-check-label' %>
+  </div>
+
+  <div class="input-group mt-2">
+    <div>
+    <%= label_tag :release_start, "Release date start", class: 'form-check-label' %>
+    <%= date_field_tag :release_start, params[:release_start], placeholder: "Release Start", class: 'form-control' %>
+    </div>
+    <div><%= label_tag :release_end, "Release date end", class: 'form-check-label' %>
+    <%= date_field_tag :release_end, params[:release_end], placeholder: "Release End", class: 'form-control' %>
+    </div>
+    <%= button_tag 'Filter by Date', class: 'btn btn-secondary' %>
+  </div>
 <% end %>
 
 <table class="table">
