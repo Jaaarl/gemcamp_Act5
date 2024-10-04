@@ -43,6 +43,7 @@
       <%= form.label :image, class: 'form-label' %>
       <%= form.text_field :image, class: 'form-control' %>
     </div>
-    <%= form.submit "Create Product", class: 'btn btn-success mt-2' %>
+    <% button_text = @product.name == nil ? "Create Product" : "Update Product" %>
+    <%= form.submit button_text, class: 'btn btn-success mt-2' %>
   </div>
 <% end %>
