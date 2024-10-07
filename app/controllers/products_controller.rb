@@ -25,6 +25,10 @@ class ProductsController < ApplicationController
       @products = @products.where(available: true)
     end
 
+    if params[:available] == "0"
+      @products = @products.where(available: false)
+    end
+
     if params[:release_start].present? && params[:release_end].present?
       @products = @products.where(release_at: params[:release_start]..params[:release_end])
     elsif params[:release_start].present?
