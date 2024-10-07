@@ -27,7 +27,8 @@
       </div>
 
       <div class="form-check mb-3">
-        <%= check_box_tag :available, "1", params[:available] == "1", id: "available", class: 'form-check-input' %>
+        <%= hidden_field_tag :available, "0" %>
+        <%= check_box_tag :available, "1", params[:available] != "0", id: "available", class: 'form-check-input' %>
         <%= label_tag :available, "Available", class: 'form-check-label' %>
       </div>
 
