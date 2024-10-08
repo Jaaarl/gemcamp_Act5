@@ -3,7 +3,6 @@ class ProductsController < ApplicationController
 
   def index
     filter_params
-    Rails.logger.info "This is params #{params}"
   end
 
   def new
