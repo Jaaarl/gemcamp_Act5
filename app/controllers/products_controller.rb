@@ -10,9 +10,9 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(params[:product].permit(:name, :content, :quantity, :price, :available, :released_at, :discount, :image))
+    @product = Product.new(product_params)
     if @product.save
-      flash[:notice] = "Product created successfully"
+      flash.now[:notice1] = "Product created successfully"
       redirect_to products_path
     else
       flash.now[:alert] = "Product created failed"
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
   def edit; end
 
   def update
-    if @product.update(params.require(:product).permit(:name, :content, :quantity, :price, :available, :released_at, :discount, :image))
+    if @product.update(product_params)
       flash[:notice] = "Product created successfully"
       redirect_to products_path
     else
@@ -98,6 +98,10 @@ class ProductsController < ApplicationController
     filter_price
     filter_availability
     filter_release_date
+  end
+
+  def product_params
+    params.require(:product).permit(:name, :content, :quantity, :price, :available, :released_at, :discount, :image)
   end
 end
 
