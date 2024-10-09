@@ -1,0 +1,20 @@
+<h1>Name: <%= @product.name %></h1>
+
+<%= form_with model: @review, url: product_reviews_path(@product) do |form| %>
+  <% if @review.errors.any? %>
+    <ul>
+      <% @comment.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= form.label :Review %>
+    <%= form.text_field :content %>
+  </div>
+  <div>
+    <%= form.label :rating %>
+    <%= form.number_field :rating, min: 0, max: 5  %>
+  </div>
+  <%= form.submit %>
+<% end %>
