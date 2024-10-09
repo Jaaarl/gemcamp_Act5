@@ -86,9 +86,9 @@ class ProductsController < ApplicationController
     if params[:release_start].present? && params[:release_end].present?
       @products = @products.where(released_at: params[:release_start]..params[:release_end])
     elsif params[:release_start].present?
-      @products = @products.where("release_at >= ?", params[:release_start])
+      @products = @products.where("released_at >= ?", params[:release_start])
     elsif params[:release_end].present?
-      @products = @products.where("release_at <= ?", params[:release_end])
+      @products = @products.where("released_at <= ?", params[:release_end])
     end
   end
 
