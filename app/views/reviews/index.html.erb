@@ -1,0 +1,9 @@
+<h1>Title <%= @product.name %></h1>
+<h2>Comments</h2>
+<ul>
+  <% @reviews.each do |review| %>
+    <li><%= review.content %>(<%= review.created_at %>)</li>
+  <% end %>
+</ul>
+
+<%= link_to 'Product list', products_path %>
