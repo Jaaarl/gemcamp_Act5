@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'welcome#index'
   resources :products do
-    resources :reviews
+    resources :reviews, except: :show
   end
 end
