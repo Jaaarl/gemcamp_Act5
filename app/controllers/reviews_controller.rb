@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_product
-  before_action :set_review, only: [:edit, :update]
+  before_action :set_review, only: [:edit, :update, :destroy]
 
   def index
     @reviews = @product.reviews
@@ -29,6 +29,12 @@ class ReviewsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @review.destroy
+    flash[:notice] = 'review deleted successfully'
+    redirect_to product_reviews_path(@product)
   end
 
   private
