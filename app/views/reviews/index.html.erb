@@ -1,12 +1,17 @@
-<h1>Title <%= @product.name %></h1>
-<h2>Comments</h2>
+<h1>Product Name: <%= @product.name %></h1>
+<h2>Review</h2>
 <ul>
   <% @reviews.each do |review| %>
     <li>
       <%= review.content %>(<%= review.created_at %>)
-      <%= review.rating %>
-      <%= link_to 'Edit', edit_product_review_path(@product, review) %>
-      <%= button_to 'Delete', product_review_path(@product, review), method: :delete %>
+      rating: 
+      <%= review.rating %> / 5
+      by
+      <%= review.user.email %>
+      <% if review.user == current_user %>
+        <%= link_to 'Edit', edit_product_review_path(@product, review) %>
+        <%= button_to 'Delete', product_review_path(@product, review), method: :delete %>
+      <% end %>
     </li>
   <% end %>
 </ul>
