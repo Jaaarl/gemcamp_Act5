@@ -63,10 +63,11 @@
         <tr>
           <td><%= product.name %></td>
           <td><%= product.quantity %></td>
-          <td><%= product.price %></td>
+          <td><%= product.price.round(2) %></td>
           <td class="text-danger"><%= product.discount %></td>
           <td>
-            <%= product.price - (product.price * (product.discount * 0.01)) %>
+            <% total_price = product.price - (product.price * (product.discount * 0.01)) %>
+            <%= total_price.round(2) %>
           </td>
           <td>
             <%= product.available == true ? "Available" : "Unavailable" %>
